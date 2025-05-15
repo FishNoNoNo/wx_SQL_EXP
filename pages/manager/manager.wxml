@@ -1,0 +1,17 @@
+<!--pages/manager/manager.wxml-->
+<view class="page">
+  <!-- 管理员信息展示 -->
+  <nf-card>
+    <view class="info-show">
+      <!-- 左边 -->
+
+      <!-- 右边 -->
+      
+    </view>
+  </nf-card>
+  <!-- 分隔 -->
+
+  <!-- 房间状态显示 -->
+
+  <!--  -->
+</view>
