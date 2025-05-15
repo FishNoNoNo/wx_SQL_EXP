@@ -1,3 +1,6 @@
-<view class="card" style="width: {{width}};">
+<block wx:if="{{title}}">
+    <text class="title">{{title}}</text>
+</block>
+<view class="card">
   <slot></slot>
 </view>

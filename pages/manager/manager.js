@@ -5,9 +5,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    manager:{
+        id:'',
+        name:'',
+        phone:'',
+        position:''
+    },
+    rooms:[
+        {
+            id:'1',
+            type:'大床房',
+            price:100,
+            status:0
+        },
+        {
+            id:'1',
+            type:'大床房',
+            price:100,
+            status:0
+        },
+        {
+            id:'1',
+            type:'大床房',
+            price:100,
+            status:0
+        },
+    ]
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -62,5 +86,18 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  addone(){
+    this.setData({
+        'manager.id': '1',
+        'manager.name': '管理员',
+        'manager.phone': '12345678901',
+        'manager.position': '超级管理员'
+      });
+  },
+  handleRoomClick(e){
+      const roomId=e.detail.id;
+      console.log(roomId)
+    // console.log(e)
   }
 })

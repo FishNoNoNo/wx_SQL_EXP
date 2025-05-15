@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+      "nf-card":"/components/nf-components/nf-card/nf-card"
+  }
+}

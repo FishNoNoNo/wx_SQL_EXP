@@ -1,17 +1,26 @@
 <!--pages/manager/manager.wxml-->
 <view class="page">
-  <!-- 管理员信息展示 -->
-  <nf-card>
-    <view class="info-show">
-      <!-- 左边 -->
-
-      <!-- 右边 -->
-      
-    </view>
-  </nf-card>
-  <!-- 分隔 -->
-
-  <!-- 房间状态显示 -->
-
-  <!--  -->
+    <!-- 管理员信息展示 -->
+    <nf-card bind:tap="addone" title="员工信息">
+        <view class="info-container">
+            <!-- 左边头像 -->
+            <view class="info-show-left">
+                <text>头像</text>
+            </view>
+            <!-- 右边基本信息 -->
+            <view class="info-show-right">
+                <text>编号:{{manager.id}}</text>
+                <text>姓名:{{manager.name}}</text>
+                <text>手机号:{{manager.phone}}</text>
+                <text>职位:{{manager.position}}</text>
+            </view>
+        </view>
+    </nf-card>
+    <!-- 分隔 -->
+    <nf-divider></nf-divider>
+    <!-- 房间状态显示 -->
+    <nf-card title="房间列表">
+        <nf-table rooms="{{rooms}}" bind:roomclick="handleRoomClick"></nf-table>
+    </nf-card>
+    <!--  -->
 </view>
