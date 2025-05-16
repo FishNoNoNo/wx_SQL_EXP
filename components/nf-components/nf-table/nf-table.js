@@ -26,6 +26,15 @@ Component({
         const id = e.currentTarget.dataset.id;
         console.log(id);
         this.triggerEvent('roomclick',{id:id});
+    },
+    statusStr(status){
+      if(status===0){
+        return '空闲'
+      }else if(status===1){
+        return '已预订'
+      }else{
+        return '已入住'
+      }
     }
   }
 })

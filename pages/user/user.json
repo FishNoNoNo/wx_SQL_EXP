@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "nf-table":"/components/nf-components/nf-table/nf-table",
+    "nf-card":"/components/nf-components/nf-card/nf-card"
+  }
 }

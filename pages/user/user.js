@@ -5,14 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    rooms:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.__init__()
   },
 
   /**
@@ -62,5 +62,27 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  __init__(){
+    const rooms=[
+      {
+          id:'1',
+          type:'大床房',
+          price:100,
+          status:0
+      },
+      {
+          id:'2',
+          type:'大床房',
+          price:100,
+          status:0
+      }
+    ];
+    this.setData({rooms:rooms})
+  },
+  handleRoomClick(e){
+    const roomId=e.detail.id;
+    console.log(roomId)
+    // console.log(e)
   }
 })
