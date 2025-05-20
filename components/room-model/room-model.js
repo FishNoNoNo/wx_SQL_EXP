@@ -50,7 +50,13 @@ Component({
             console.log(e)
             const roomId=e.currentTarget.dataset.roomid;
             const userId=e.currentTarget.dataset.userid;
+            console.log(roomId+userId)
             requestUtil.checkin(roomId,userId)
+        },
+        checkout:(e)=>{
+            const roomId=e.currentTarget.dataset.roomid;
+            const userId=e.currentTarget.dataset.userid;
+            requestUtil.checkout(roomId,userId)
         }
     },
 

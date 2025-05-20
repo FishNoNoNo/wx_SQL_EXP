@@ -1,48 +1,58 @@
 <!--pages/manager/manager.wxml-->
-<view class="page">
-  <!-- 管理员信息展示 -->
-  <nf-card bind:tap="addone" title="员工信息" id="infoContainer">
-    <view class="info-container">
-      <!-- 左边头像 -->
-      <view class="info-show-left">
-        <text>头像</text>
-      </view>
-      <!-- 右边基本信息 -->
-      <view class="info-show-right">
-        <text>编号:{{ manager.id }}</text>
-        <text>姓名:{{ manager.name }}</text>
-        <text>手机号:{{ manager.phone }}</text>
-        <text>职位:{{ manager.permission }}</text>
-      </view>
-    </view>
-  </nf-card>
-  <!-- 分隔 -->
-  <nf-divider></nf-divider>
-  <swiper style="height: {{ swiperHeight }};">
-    <swiper-item style="position: absolute; left: 0rpx; top: 0rpx">
-      <scroll-view scroll-y="true" style="height: {{ swiperHeight }};">
-        <!-- 房间状态显示 -->
+<wxs module="utils">
+    var permissionMap = ['前台', '清洁工'];
 
-        <nf-card title="房间列表">
-          <nf-table-room
-            rooms="{{ rooms }}"
-            bind:roomclick="handleRoomClick"
-          ></nf-table-room>
-        </nf-card>
-      </scroll-view>
-    </swiper-item>
-    <swiper-item style="position: absolute; left: 0rpx; top: 0rpx">
-      <scroll-view scroll-y="true" style="height: {{ swiperHeight }};">
-        <nf-card title="用户列表">
-          <nf-table-user
-            users="{{ users }}"
-            bind:userclick="handleUserClick"
-          ></nf-table-user>
-        </nf-card>
-      </scroll-view>
-    </swiper-item>
-  </swiper>
-  <!--  -->
-  <room-model roomDetail="{{roomDetail}}" userDetail="{{userDetail}}" detailShow="{{roomDetailShow}}"></room-model>
-  <user-model userDetail="{{userDetail}}" detailShow="{{userDetailShow}}"></user-model>
+    module.exports = {
+    permissionText:function(permission){
+    if(permission==undefined){
+    return '未知'
+    }
+    return permissionMap[permission]
+    }
+    };
+</wxs>
+<view class="page">
+    <!-- 管理员信息展示 -->
+    <nf-card title="员工信息" id="infoContainer">
+        <form bindsubmit="changeMan" style="display: flex;">
+            <input type="text" name="id" placeholder="请输入id" />
+            <button formType="submit" type="primary">点击切换</button>
+        </form>
+        <view class="info-container">
+            <!-- 左边头像 -->
+            <view class="info-show-left">
+                <text>头像</text>
+            </view>
+            <!-- 右边基本信息 -->
+            <view class="info-show-right">
+                <text>编号:{{ manager.id }}</text>
+                <text>姓名:{{ manager.name }}</text>
+                <text>手机号:{{ manager.phone }}</text>
+                <text>职位:{{ utils.permissionText(manager.permission) }}</text>
+            </view>
+        </view>
+    </nf-card>
+    <!-- 分隔 -->
+    <nf-divider></nf-divider>
+    <swiper style="height: {{ swiperHeight }};">
+        <swiper-item style="position: absolute; left: 0rpx; top: 0rpx">
+            <scroll-view scroll-y="true" style="height: {{ swiperHeight }};">
+                <!-- 房间状态显示 -->
+
+                <nf-card title="房间列表">
+                    <nf-table-room rooms="{{ rooms }}" bind:roomclick="handleRoomClick"></nf-table-room>
+                </nf-card>
+            </scroll-view>
+        </swiper-item>
+        <swiper-item style="position: absolute; left: 0rpx; top: 0rpx">
+            <scroll-view scroll-y="true" style="height: {{ swiperHeight }};">
+                <nf-card title="用户列表">
+                    <nf-table-user users="{{ users }}" bind:userclick="handleUserClick"></nf-table-user>
+                </nf-card>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+    <!--  -->
+    <room-model roomDetail="{{roomDetail}}" userDetail="{{userDetail}}" detailShow="{{roomDetailShow}}"></room-model>
+    <user-model userDetail="{{userDetail}}" detailShow="{{userDetailShow}}"></user-model>
 </view>

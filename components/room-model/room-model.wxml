@@ -39,7 +39,7 @@
       <text>姓名:{{ userDetail.name }}</text>
       <text>手机号:{{ userDetail.phone }}</text>
       <text>状态:{{ userDetail.status }}</text>
-      <button type="warn" bind:tap="checkout" data-userId="userDetail.id">
+      <button type="warn" bind:tap="checkout" data-userId="{{userDetail.id}}" data-roomId="{{roomDetail.id}}">
         退房
       </button>
     </block>

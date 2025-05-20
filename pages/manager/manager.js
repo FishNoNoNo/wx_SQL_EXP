@@ -1,4 +1,5 @@
 // pages/manager/manager.js
+var requestUtil=require("../../utils/request.js")
 Page({
 
     /**
@@ -86,14 +87,6 @@ Page({
     onShareAppMessage() {
 
     },
-    addone() {
-        this.setData({
-            'manager.id': '1',
-            'manager.name': '管理员',
-            'manager.phone': '12345678901',
-            'manager.permission': '超级管理员'
-        });
-    },
     __init__() {
         const rooms = [{
                 id: '1',
@@ -133,19 +126,26 @@ Page({
                 phone: '13676623595',
                 status: 2,
                 roomId: '2'
+            },
+            {
+                id: '3',
+                name: '李四',
+                phone: '13676623595',
+                status: 1,
+                roomId: '3'
+            },
+            {
+                id: '4',
+                name: '李四',
+                phone: '13676623595',
+                status: 2,
+                roomId: '4'
             }
         ]
-        const manager = {
-            id: '1',
-            name: '张三',
-            phone: '136....3595',
-            permission: '前台'
-        }
-        this.setData({
-            rooms: rooms,
-            manager: manager,
-            users: users
-        })
+        // this.setData({
+        //     rooms: rooms,
+        //     users: users
+        // })
     },
     findUser(roomId) {
         // 使用api获取数据
@@ -193,6 +193,15 @@ Page({
         this.setData({
             userDetailShow: true
         })
+    },
+    async changeMan(e){
+        const id=e.detail.value.id
+        const manager=await requestUtil.getManager(id)
+        this.setData({manager:manager})
+        const roomList=await requestUtil.roomList(manager.permission,'','',1,10)
+        this.setData({rooms:roomList})
+        const userList=await requestUtil.userList('',1,10)
+        this.setData({users:userList})
     },
     getInfoHeight() {
         wx.createSelectorQuery().select('#infoContainer').boundingClientRect((rect) => {

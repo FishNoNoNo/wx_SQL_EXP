@@ -3,5 +3,5 @@
     <nf-card title="房间列表">
         <nf-table-room rooms="{{ rooms }}" bind:roomclick="handleRoomClick"></nf-table-room>
     </nf-card>
-    <nf-model isShow="{{ roomDetailShow }}"> room </nf-model>
+    <room-model roomDetail="{{roomDetail}}" detailShow="{{roomDetailShow}}"></room-model>
 </view>
