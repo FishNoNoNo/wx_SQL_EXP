@@ -1,0 +1,6 @@
+/* components/room-model/room-model.wxss */
+.model-detail {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}

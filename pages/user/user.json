@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "nf-table":"/components/nf-components/nf-table/nf-table",
-    "nf-card":"/components/nf-components/nf-card/nf-card"
+    "nf-table-room":"/components/nf-components/nf-table-room/nf-table-room",
+    "nf-card":"/components/nf-components/nf-card/nf-card",
+    "nf-model":"/components/nf-components/nf-model/nf-model"
   }
 }

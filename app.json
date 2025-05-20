@@ -3,7 +3,6 @@
     "pages/manager/manager",
     "pages/user/user"
   ],
-  "entryPagePath": "pages/user/user",
   "tabBar": {
     "list": [
       {

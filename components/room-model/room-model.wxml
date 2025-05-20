@@ -1,0 +1,48 @@
+<!--components/room-model/room-model.wxml-->
+<wxs module="utils">
+    var statusMap = ['空闲', '已预订', '已入住', '维修中']; 
+    module.exports = {
+        statusText:function(status){ 
+            if(status==undefined){ 
+                return '未知' 
+            } 
+            return statusMap[status] 
+        } 
+    };
+</wxs>
+<nf-model isShow="{{ detailShow }}">
+  <view class="model-detail">
+    <text>图片</text>
+    <text>房间号:{{ roomDetail.id }}</text>
+    <text>类型:{{ roomDetail.type }}</text>
+    <text>价格:{{ roomDetail.price }}</text>
+    <text>状态:{{ utils.statusText(roomDetail.status) }}</text>
+    <block wx:if="{{ roomDetail.status == 0 }}">
+      <!-- 预定 -->
+      <form bindsubmit="bookRoom">
+        <input class="weui-input" name="name" placeholder="输入用户姓名" />
+        <input class="weui-input" name="phone" placeholder="输入用户手机号" />
+        <button type="primary" formType="submit" data-roomId="{{roomDetail.id}}">预订</button>
+      </form>
+    </block>
+    <block wx:elif="{{ roomDetail.status == 1 }}">
+      <!-- 登记入住/退房 -->
+      <text>姓名:{{ userDetail.name }}</text>
+      <text>手机号:{{ userDetail.phone }}</text>
+      <text>状态:{{ userDetail.status }}</text>
+      <button type="primary" bind:tap="checkin" data-userId="{{userDetail.id}}" data-roomId="{{roomDetail.id}}">
+        入住
+      </button>
+    </block>
+    <block wx:elif="{{ roomDetail.status == 2 }}">
+      <!-- 登记入住/退房 -->
+      <text>姓名:{{ userDetail.name }}</text>
+      <text>手机号:{{ userDetail.phone }}</text>
+      <text>状态:{{ userDetail.status }}</text>
+      <button type="warn" bind:tap="checkout" data-userId="userDetail.id">
+        退房
+      </button>
+    </block>
+    <block wx:else> 维修中 </block>
+  </view>
+</nf-model>

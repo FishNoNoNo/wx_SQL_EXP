@@ -23,18 +23,10 @@ Component({
    */
   methods: {
     click(e){
-        const id = e.currentTarget.dataset.id;
-        console.log(id);
-        this.triggerEvent('roomclick',{id:id});
-    },
-    statusStr(status){
-      if(status===0){
-        return '空闲'
-      }else if(status===1){
-        return '已预订'
-      }else{
-        return '已入住'
-      }
+        const item = e.currentTarget.dataset.item;
+        // console.log(item)
+        // console.log(id);
+        this.triggerEvent('roomclick',{item:item});
     }
   }
 })

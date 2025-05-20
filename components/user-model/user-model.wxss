@@ -1,0 +1,6 @@
+/* components/user-model/user-model.wxss */
+.model-detail{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}

@@ -1,0 +1,29 @@
+<!--components/nf-components/nf-table-user/nf-table-user.wxml-->
+<wxs module="utils">
+    var statusMap = ['','有预约', '已入住', '已退房'];
+    module.exports={
+        statusText:function (status){
+            if (status==undefined){
+                return '未知'
+            }
+            return statusMap[status]
+        }
+    }
+</wxs>
+<view class="table">
+    <block wx:for="{{users}}" wx:key="id">
+        <!-- 用户卡片 -->
+        <view class="table-item" bind:tap="click" data-item="{{item}}">
+            <!-- 左边 -->
+            <view class="table-item-left">
+                <text>姓名:{{item.name}}</text>
+                <text>手机号:{{item.phone}}</text>
+            </view>
+            
+            <view class="table-item-right">
+                <text>状态:{{utils.statusText(item.status)}}</text>
+                <text>房间号:{{item.roomId}}</text>
+            </view>
+        </view>
+    </block>
+</view>

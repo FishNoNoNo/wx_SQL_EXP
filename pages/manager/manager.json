@@ -3,6 +3,9 @@
     "nf-divider":"/components/nf-components/nf-divider/nf-divider",
     "navigation-bar":"/components/navigation-bar/navigation-bar",
     "nf-card":"/components/nf-components/nf-card/nf-card",
-    "nf-table":"/components/nf-components/nf-table/nf-table"
+    "nf-table-room":"/components/nf-components/nf-table-room/nf-table-room",
+    "nf-table-user":"/components/nf-components/nf-table-user/nf-table-user",
+    "room-model":"/components/room-model/room-model",
+    "user-model":"/components/user-model/user-model"
   }
 }

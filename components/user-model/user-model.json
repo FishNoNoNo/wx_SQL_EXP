@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "nf-model":"/components/nf-components/nf-model/nf-model"
+  }
+}

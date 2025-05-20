@@ -1,0 +1,10 @@
+<!--components/nf-components/nf-model/nf-model.wxml-->
+<wxs module="styles">
+  module.exports={ maskStyle:function () { }, tipStyle:function () { } }
+</wxs>
+<view hidden="{{ !isShow }}">
+  <view class="mask" bind:tap="click"></view>
+  <view class="tip">
+    <slot></slot>
+  </view>
+</view>

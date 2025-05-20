@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    rooms:[]
+    rooms:[],
+    roomDetailShow:false
   },
 
   /**
@@ -84,5 +85,6 @@ Page({
     const roomId=e.detail.id;
     console.log(roomId)
     // console.log(e)
+    this.setData({roomDetailShow:true})
   }
 })

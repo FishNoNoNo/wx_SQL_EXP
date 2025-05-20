@@ -1,26 +1,26 @@
 <!--components/nf-components/nf-table/nf-table.wxml-->
 <wxs module="utils">
-  var statusMap = ['空闲', '已预订', '已入住', '维修中'];
+    var statusMap = ['空闲', '已预订', '已入住', '维修中'];
 
-  module.exports = {
+    module.exports = {
     statusText:function(status){
-      if(status==undefined){
-        return '未知'
-      }
-      return statusMap[status]
+    if(status==undefined){
+    return '未知'
     }
-  };
+    return statusMap[status]
+    }
+    };
 </wxs>
 <view class="table">
     <block wx:for="{{rooms}}" wx:key="id">
         <!-- 房间卡片 -->
-        <view class="table-item" bind:tap="click" data-id="{{item.id}}">
+        <view class="table-item" bind:tap="click" data-item="{{item}}">
             <!-- 左边 -->
             <view class="table-item-left">
                 <text>图片</text>
             </view>
             <!-- 右边 -->
-            
+
             <view class="table-item-right">
                 <text>房间号:{{item.id}}</text>
                 <text>类型:{{item.type}}</text>

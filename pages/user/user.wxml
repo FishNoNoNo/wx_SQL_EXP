@@ -1,6 +1,7 @@
 <!--pages/user/user.wxml-->
 <view class="page">
-  <nf-card title="房间列表">
-        <nf-table rooms="{{rooms}}" bind:roomclick="handleRoomClick"></nf-table>
+    <nf-card title="房间列表">
+        <nf-table-room rooms="{{ rooms }}" bind:roomclick="handleRoomClick"></nf-table-room>
     </nf-card>
+    <nf-model isShow="{{ roomDetailShow }}"> room </nf-model>
 </view>

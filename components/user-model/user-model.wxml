@@ -1,0 +1,28 @@
+<wxs module="utils">
+    var statusMap = ['','有预约', '已入住', '已退房'];
+    module.exports = {
+    statusText:function(status){
+    if(status==undefined){
+    return '未知'
+    }
+    return statusMap[status]
+    }
+    };
+</wxs>
+<nf-model isShow="{{ detailShow }}">
+    <view class="model-detail">
+        <text>姓名:{{ userDetail.name }}</text>
+        <text>手机号:{{ userDetail.phone }}</text>
+        <text>状态:{{ userDetail.status }}</text>
+        <block wx:if="{{ userDetail.status == 1 }}">
+            <button type="primary" bind:tap="checkin" data-userId="userDetail.id">
+                入住
+            </button>
+        </block>
+        <block wx:elif="{{ userDetail.status == 2 }}">
+            <button type="warn" bind:tap="checkout" data-userId="userDetail.id">
+                退房
+            </button>
+        </block>
+    </view>
+</nf-model>
