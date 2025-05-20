@@ -28,9 +28,51 @@ function checkin(roomId,userId){
       method:"GET",
       data:data,
       success:(res)=>{
-          console.log(res)
+          console.log(res.data)
       }
     })
+}
+
+function checkout(roomId,userId){
+  const url=baseUrl+'/checkout'
+  const data={
+    roomId:roomId,
+    userId:userId
+  }
+  wx.request({
+    url: url,
+    data: data,
+    method:'GET',
+    success: (res) => {
+      console.log(res.data)
+    }
+  })
+
+
+function roomList(permission,status,type){
+  const url=baseUrl+'/roomList'
+
+  const data ={
+    permission:permission,
+    status:status,
+    type:type
+  }
+}
+
+function checkout(roomId,userId){
+  const url=baseUrl+'/checkout'
+  const data={
+    roomId:roomId,
+    userId:userId
+  }
+  wx.request({
+    url: url,
+    data: data,
+    method:'GET',
+    success: (res) => {
+      console.log(res.data)
+    }
+  })
 }
 
 module.exports={

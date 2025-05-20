@@ -12,7 +12,7 @@
         <text>编号:{{ manager.id }}</text>
         <text>姓名:{{ manager.name }}</text>
         <text>手机号:{{ manager.phone }}</text>
-        <text>职位:{{ manager.position }}</text>
+        <text>职位:{{ manager.permission }}</text>
       </view>
     </view>
   </nf-card>

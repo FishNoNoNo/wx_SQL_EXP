@@ -9,7 +9,7 @@ Page({
             id: '',
             name: '',
             phone: '',
-            position: ''
+            permission: ''
         },
         rooms: [],
         users: [],
@@ -91,7 +91,7 @@ Page({
             'manager.id': '1',
             'manager.name': '管理员',
             'manager.phone': '12345678901',
-            'manager.position': '超级管理员'
+            'manager.permission': '超级管理员'
         });
     },
     __init__() {
@@ -139,7 +139,7 @@ Page({
             id: '1',
             name: '张三',
             phone: '136....3595',
-            position: '前台'
+            permission: '前台'
         }
         this.setData({
             rooms: rooms,
