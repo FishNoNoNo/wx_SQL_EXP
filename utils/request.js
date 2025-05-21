@@ -1,6 +1,6 @@
 const baseUrl = "http://127.0.0.1:8010/api";
 
-function bookRoom(phone, name, roomId) {
+function bookRoom(name, phone, roomId) {
     const url = baseUrl + '/bookRoom';
     const data = { phone, name, roomId };
 
@@ -23,9 +23,9 @@ function bookRoom(phone, name, roomId) {
     });
 }
 
-function checkin(roomId, userId) {
+function checkin(managerId,roomId, userId) {
     const url = baseUrl + '/checkin';
-    const data = { roomId, userId };
+    const data = { roomId, userId ,managerId};
 
     return new Promise((resolve, reject) => {
         wx.request({

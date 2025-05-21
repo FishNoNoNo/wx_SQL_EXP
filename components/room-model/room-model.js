@@ -1,6 +1,6 @@
 // components/room-model/room-model.js
 var requestUtil=require("../../utils/request.js")
-
+const app =getApp()
 Component({
 
     /**
@@ -50,13 +50,16 @@ Component({
             console.log(e)
             const roomId=e.currentTarget.dataset.roomid;
             const userId=e.currentTarget.dataset.userid;
-            console.log(roomId+userId)
-            requestUtil.checkin(roomId,userId)
+            const managerId=app.globalData.managerId;
+            console.log(managerId)
+            requestUtil.checkin(managerId,roomId,userId)
         },
         checkout:(e)=>{
             const roomId=e.currentTarget.dataset.roomid;
             const userId=e.currentTarget.dataset.userid;
-            requestUtil.checkout(roomId,userId)
+            const managerId=app.globalData.managerId;
+            console.log(managerId)
+            requestUtil.checkout(managerId,roomId,userId)
         }
     },
 

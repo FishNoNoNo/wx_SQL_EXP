@@ -1,5 +1,6 @@
 // pages/manager/manager.js
 var requestUtil=require("../../utils/request.js")
+const app=getApp()
 Page({
 
     /**
@@ -195,13 +196,14 @@ Page({
         })
     },
     async changeMan(e){
-        const id=e.detail.value.id
+        const id=Number(e.detail.value.id)
         const manager=await requestUtil.getManager(id)
         this.setData({manager:manager})
-        const roomList=await requestUtil.roomList(manager.permission,'','',1,10)
+        const roomList=await requestUtil.roomList(manager.permission,'','','','')
         this.setData({rooms:roomList})
-        const userList=await requestUtil.userList('',1,10)
+        const userList=await requestUtil.userList('','','')
         this.setData({users:userList})
+        app.globalData.managerId=id;
     },
     getInfoHeight() {
         wx.createSelectorQuery().select('#infoContainer').boundingClientRect((rect) => {
